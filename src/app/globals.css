@@ -1,26 +1,134 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ivory: #f6f2ec;
+  --cream: #fbf9f5;
+  --paper: #ffffff;
+  --ink: #211c18;
+  --ink-soft: #4a443e;
+  --muted: #6b635c;
+  --line: #e7e0d5;
+  --camel: #a87544;
+  --camel-dark: #6f4a26;
+  --camel-light: #c79a6a;
+  --bp: #d11f29;
+  --bp-dark: #b81420;
+  --bp-accent: #ff3d47;
+  --sand: #efe8dc;
+  --stabilo: #dcb24f;
+
+  --background: var(--ivory);
+  --foreground: var(--ink);
 }
 
 @theme inline {
+  --color-ivory: var(--ivory);
+  --color-cream: var(--cream);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-camel: var(--camel);
+  --color-camel-dark: var(--camel-dark);
+  --color-camel-light: var(--camel-light);
+  --color-bp: var(--bp);
+  --color-bp-dark: var(--bp-dark);
+  --color-bp-accent: var(--bp-accent);
+  --color-sand: var(--sand);
+  --color-stabilo: var(--stabilo);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--ivory);
+  background-image: radial-gradient(circle at 50% 0%, var(--cream) 0%, transparent 60%);
+  background-attachment: fixed;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+.kicker {
+  font-family: var(--font-body), ui-sans-serif, sans-serif;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: var(--camel-dark);
+}
+
+.card-surface {
+  background-color: color-mix(in srgb, var(--cream) 95%, transparent);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 20px 45px -25px rgba(111, 74, 38, 0.35);
+  border-radius: 1.5rem;
+}
+
+.btn-primary {
+  background-color: var(--ink);
+  color: var(--cream);
+  border-radius: 0.75rem;
+  transition: background-color 0.15s ease;
+}
+.btn-primary:hover {
+  background-color: var(--camel-dark);
+}
+
+.btn-secondary {
+  background-color: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.btn-secondary:hover {
+  border-color: var(--camel);
+  background-color: var(--sand);
+}
+
+.btn-danger {
+  background-color: var(--bp);
+  color: var(--cream);
+  border-radius: 0.75rem;
+  transition: background-color 0.15s ease;
+}
+.btn-danger:hover {
+  background-color: var(--bp-dark);
+}
+
+.btn-filter-active {
+  background-color: var(--sand);
+  color: var(--camel-dark);
+}
+
+.badge {
+  background-color: color-mix(in srgb, var(--camel) 10%, transparent);
+  color: var(--camel-dark);
+  border-radius: 999px;
+}
+
+.input-field {
+  background-color: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  color: var(--ink);
+}
+.input-field:focus {
+  outline: none;
+  border-color: var(--camel);
+}
+
+:focus-visible {
+  outline: 2px solid var(--camel-dark);
+  outline-offset: 2px;
 }
